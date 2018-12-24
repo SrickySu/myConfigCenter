@@ -1,0 +1,9 @@
+server:
+  port: 8081
+  
+eureka:
+  instance:
+    instance-id: myWeb_instance
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/  
