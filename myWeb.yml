@@ -4,6 +4,14 @@ server:
 eureka:
   instance:
     instance-id: myWeb_instance
+    prefer-ip-address: true     #访问路径可以显示IP地址 
+    ip-address: localhost
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/  
+      defaultZone: http://localhost:7001/eureka/      
+ 
+info: 
+  app.name: myWeb-springCloud
+  company.name: www.surichard.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
