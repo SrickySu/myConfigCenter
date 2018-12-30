@@ -10,12 +10,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/      
 
-zuul:
-  prefix: mySpringCloud
-  routes:
-    myService1.url: https://www.baidu.com/
-    myService1.path: /myService1Url/**
-
 info: 
   app.name: myService1-springCloud
   company.name: www.surichard.com
