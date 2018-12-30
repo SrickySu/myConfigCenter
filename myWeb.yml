@@ -13,7 +13,7 @@ eureka:
 zuul:
   #prefix: mySpringCloud
   routes:
-    myService1.url: https://www.baidu.com/
+    myService1.serviceId: myService1
     myService1.path: /myService1Url/**
 
 info: 
