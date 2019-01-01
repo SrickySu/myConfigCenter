@@ -3,7 +3,7 @@ spring:
     name: myWeb
   profiles:
     active:
-    - dev
+    - test
 
 zuul:
   #prefix: /mySpringCloud
