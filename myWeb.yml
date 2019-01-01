@@ -1,24 +1,9 @@
 spring:
+  application:
+    name: myWeb
   profiles:
     active:
     - dev
----
-spring:
-  profiles: dev
-  application:
-    name: myWeb
-    
-server:
-  port: 8081
-  
-eureka:
-  instance:
-    instance-id: myWeb_instance
-    prefer-ip-address: true     #访问路径可以显示IP地址 
-    ip-address: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:7001/eureka/      
 
 zuul:
   #prefix: /mySpringCloud
@@ -26,6 +11,22 @@ zuul:
     myService1route:
       serviceId: myService1
       path: /myService1Url/**
+
+---
+spring:
+  profiles: dev
+    
+server:
+  port: 8081
+  
+eureka:
+  instance:
+    instance-id: myWeb_dev_instance
+    prefer-ip-address: true     #访问路径可以显示IP地址 
+    #ip-address: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/      
 
 info: 
   app.name: myWeb-springCloud
@@ -36,27 +37,18 @@ info:
 ---
 spring:
   profiles: test
-  application:
-    name: myWeb
     
 server:
   port: 8091
   
 eureka:
   instance:
-    instance-id: myWeb_instance
+    instance-id: myWeb_test_instance
     prefer-ip-address: true     #访问路径可以显示IP地址 
-    ip-address: localhost
+    #ip-address: localhost
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/      
-
-zuul:
-  #prefix: /mySpringCloud
-  routes:
-    myService1route:
-      serviceId: myService1
-      path: /myService1Url/**
 
 info: 
   app.name: myWeb-springCloud
