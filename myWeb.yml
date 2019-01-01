@@ -1,3 +1,13 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: myWeb
+    
 server:
   port: 8081
   
@@ -22,3 +32,34 @@ info:
   company.name: www.surichard.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+
+---
+spring:
+  profiles: test
+  application:
+    name: myWeb
+    
+server:
+  port: 8091
+  
+eureka:
+  instance:
+    instance-id: myWeb_instance
+    prefer-ip-address: true     #访问路径可以显示IP地址 
+    ip-address: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/      
+
+zuul:
+  #prefix: /mySpringCloud
+  routes:
+    myService1route:
+      serviceId: myService1
+      path: /myService1Url/**
+
+info: 
+  app.name: myWeb-springCloud
+  company.name: www.surichard.com
+  build.artifactId: artifactIdTest
+  build.version: versionTest
