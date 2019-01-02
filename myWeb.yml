@@ -3,7 +3,7 @@ spring:
     name: myWeb
   profiles:
     active:
-    - test
+    - dev
 
 zuul:
   #prefix: /mySpringCloud
@@ -31,8 +31,8 @@ eureka:
 info: 
   app.name: myWeb-springCloud
   company.name: www.surichard.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
 
 ---
 spring:
