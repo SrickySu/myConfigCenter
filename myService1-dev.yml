@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: myService1
+  datasource:
+    url: 
+    username: 
+    password: 
+
+server:
+  port: 8082
+  
+eureka:
+  instance:
+    instance-id: myService1_dev_instance
+    prefer-ip-address: true     #访问路径可以显示IP地址 
+    #ip-address: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/      
+
+info: 
+  app.name: myService1-springCloud
+  company.name: www.surichard.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
