@@ -2,9 +2,16 @@ spring:
   application:
     name: myService1
   datasource:
-    url: 
-    username: 
-    password: 
+    #url: jdbc:mysql://localhost:3306/mysql?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://localhost:3306/mysql
+    username: root
+    password: root
+
+mybatis:
+  #config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.surichard.myService1.entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
 
 server:
   port: 8082
@@ -21,5 +28,5 @@ eureka:
 info: 
   app.name: myService1-springCloud
   company.name: www.surichard.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version$}
