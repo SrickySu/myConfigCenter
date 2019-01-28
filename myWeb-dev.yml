@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: myWeb
@@ -8,10 +11,7 @@ zuul:
     myService1route:
       serviceId: myService1
       path: /myService1Url/**
-
-server:
-  port: 8081
-  
+ 
 eureka:
   instance:
     instance-id: myWeb_dev_instance
