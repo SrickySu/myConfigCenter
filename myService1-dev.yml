@@ -1,15 +1,18 @@
 server:
   port: 8082
 
+database:
+  url: localhost
+
 spring:
   application:
     name: myService1
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/mysql?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://${database.url}:3306/mysql?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
     #url: jdbc:mysql://localhost:3306/mysql
     username: root
-    password: root
+    password: 
     dbcp2:
       min-idle: 5                                           # 数据库连接池的最小维持连接数
       initial-size: 5                                       # 初始化连接数
@@ -17,7 +20,7 @@ spring:
       max-wait-millis: 10000                                  # 等待连接获取的最大超时时间
   
   redis:
-    host: localhost
+    host: ${database.url}
     port: 6379
     database: 0
     password: 
