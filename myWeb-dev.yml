@@ -21,6 +21,19 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/      
 
+ribbon:
+  ReadTimeout: 10000  
+  ConnectTimeout: 10000
+  MaxAutoRetries: 3
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 10000
+                        
 info: 
   app.name: myWeb-springCloud
   company.name: www.surichard.com
