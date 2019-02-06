@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: myWeb
+  thymeleaf:
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
 
 zuul:
   #prefix: /mySpringCloud
