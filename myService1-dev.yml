@@ -1,7 +1,7 @@
 server:
   port: 8082
 
-database:
+remoteServer:
   url: localhost
 
 spring:
@@ -9,7 +9,7 @@ spring:
     name: myService1
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://${database.url}:3306/mysql?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://${remoteServer.url}:3306/mysql?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
     #url: jdbc:mysql://localhost:3306/mysql
     username: root
     password: 
@@ -20,7 +20,7 @@ spring:
       max-wait-millis: 10000                                  # 等待连接获取的最大超时时间
   
   redis:
-    host: ${database.url}
+    host: ${remoteServer.url}
     port: 6379
     database: 0
     password: 
@@ -28,6 +28,13 @@ spring:
     pool:
       max-wait: 5000
 
+  rabbitmq:
+    host: ${remoteServer.url}
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: 
+    
 mybatis:
   #config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
   type-aliases-package: com.surichard.myService1.entity    # 所有Entity别名类所在包
@@ -41,7 +48,13 @@ eureka:
     #ip-address: localhost
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/      
+      defaultZone: http://localhost:7001/eureka/ 
+   
+rabbitmq:
+  routing_key:
+    testKey: myTestRoutingKey
+  queue:
+    testQueue: myTestQueue       
 
 info: 
   app.name: myService1-springCloud
