@@ -30,6 +30,8 @@ spring:
     username: guest
     password: 
     
+    exchange:
+      topic: amq.topic
     routing_key:
       testKey: myTestRoutingKey
     queue:
