@@ -23,5 +23,5 @@ eureka:
 info: 
   app.name: myService1-springCloud
   company.name: www.surichard.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
