@@ -27,7 +27,7 @@ else
     for i in ${pid[*]}; do
       kill -9 $i
     done
-    echo "All applications have beend killed."
+    echo "All applications have been killed."
   else
     pid=`ps -ef | grep java | grep $jarNamePrefix | grep -v grep | awk -F ' ' '{print $2}'`
     if [ "$pid" != "" ] ; then
