@@ -19,7 +19,7 @@ else
   if [ $existFlag == false ] ; then
     echo "The parameter doesn't exist. Available parameters are:"
     echo ${jarNameArray[*]}
-    exit 1
+    exit 1 
   fi
 
   if [ $jarNamePrefix == all ] ; then
